@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.cell.TextFieldTableCell?>
+
+<HBox fx:controller="UI.MainController"
+      xmlns:fx="http://javafx.com/fxml" alignment="center">
+
+    <VBox>
+        <Label text="Medicament:"/>
+        <TableView fx:id="tableViewMedicaments" editable="true">
+            <columns>
+                <TableColumn fx:id="tableColumnId" text="id">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="id" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="tableColumnName" text="Name" onEditCommit="#editMedName">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="name" />
+                    </cellValueFactory>
+                    <cellFactory>
+                        <TextFieldTableCell fx:factory="forTableColumn" />
+                    </cellFactory>
+                </TableColumn>
+                <TableColumn fx:id="tableColumnManufacturer" text="Manufacturer">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="manufacturer" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="tableColumnPrice" text="Price">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="price" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="tableColumnNeedRecipe" text="Need Recipe">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="needRecipe" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+        <Button text="Add medicament" fx:id="btnMedAdd" onAction="#btnMedAddClick" />
+        <Button text="Delete medicament" fx:id="btnMedDelete" onAction="#btnMedDeleteClick" />
+    </VBox>
+</HBox>

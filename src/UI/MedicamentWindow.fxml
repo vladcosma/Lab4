@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<HBox fx:controller="UI.MedicamentController"
+      xmlns:fx="http://javafx.com/fxml" alignment="center">
+
+    <VBox>
+        <Label text="Medicament:"/>
+        <TableView fx:id="tableViewMedicaments" editable="true">
+            <columns>
+                <TableColumn fx:id="tableColumnId" text="id">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="id" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="tableColumnName" text="Name">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="name" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="tableColumnManufacturer" text="Manufacturer">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="manufacturer" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="tableColumnPrice" text="Price">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="price" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="tableColumnNeedRecipe" text="Need Recipe">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="needRecipe" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+        <Button text="Add medicament" fx:id="btnMedAdd" onAction="#btnAddMedicineClick" />
+        <Button text="Delete medicament" fx:id="btnMedDelete" onAction="#btnRemoveMedicineClick" />
+        <Button fx:id="btnUndoMedicine" text="Undo" onAction="#btnUndoMedicineClick"/>
+        <Button fx:id="btnRedoMedicine" text="Redo" onAction="#btnRedoMedicineClick"/>
+
+    </VBox>
+    <HBox>
+        <VBox>
+            <Spinner fx:id="spnId" initialValue="0" editable="true" min="0" max="2000000000"/>
+            <TextField fx:id="txtName" promptText="Name"/>
+            <TextField fx:id="txtManufacturer" promptText="Manufacturer"/>
+            <TextField fx:id="txtPrice" promptText="Price"/>
+            <CheckBox fx:id="chkNeedRecipe" text="Need Recipe"/>
+
+            <Button text="Add" fx:id="btnAdd" onAction="#btnAddClick" />
+            <Button text="Cancel" fx:id="btnCancel" onAction="#btnCancelClick" />
+        </VBox>
+    </HBox>
+</HBox>

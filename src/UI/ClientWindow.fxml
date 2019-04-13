@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<HBox fx:controller="UI.ClientController"
+      xmlns:fx="http://javafx.com/fxml" alignment="center">
+
+    <VBox>
+        <Label text="Client:"/>
+        <TableView fx:id="tableViewClients" editable="true">
+            <columns>
+                <TableColumn fx:id="tableColumnClId" text="id">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="id" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="tableColumnClFirstName" text="First Name">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="fName" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="tableColumnClLastName" text="Last Name">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="lName" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="tableColumnClCNP" text="CNP">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="cnp" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="tableColumnClDateOfReg" text="DateOfReg">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="dateOfReg" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="tableColumnClDateOfBirth" text="DateOfBirth">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="dateOfBirth" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+
+        <Button text="Add" fx:id="btnClAdd" onAction="#btnAddClientClick" />
+        <Button text="Remove" fx:id="btnRemoveClient" onAction="#btnRemoveClientClick" />
+        <Button text="Cancel" fx:id="btnClCancel" onAction="#btnClCancelClick" />
+    </VBox>
+
+    <VBox>
+        <Spinner fx:id="spnId" initialValue="0" editable="true" min="0" max="2000000000"/>
+        <TextField fx:id="txtFirstName" promptText="First Name"/>
+        <TextField fx:id="txtLastName" promptText="Last Name"/>
+        <TextField fx:id="txtCNP" promptText="CNP"/>
+        <TextField fx:id="txtDateOfRegistration" promptText="Date of Registration"/>
+        <TextField fx:id="txtDateOfBirth" promptText="Date of birth"/>
+
+
+        <TextField fx:id="txtClientSearch" promptText="Client Search"/>
+        <Button fx:id="btnClientSearch" text="Search client" onAction="#btnSearchClient"/>
+
+        <Button fx:id="btnUndoClient" text="Undo" onAction="#btnUndoClientClick"/>
+        <Button fx:id="btnRedoClient" text="Redo" onAction="#btnRedoClientClick"/>
+
+    </VBox>
+</HBox>
